@@ -21,6 +21,7 @@ open Result
 (* We initialize SDL with only the events subsystem *)
 let () =
   Sdl.(init Init.nothing) |> go;
+  Sdl.log_set_all_priority Sdl.Log.priority_critical;
   printd debug_warning "SDL initialized";
   let a,b,c = Sdl.get_version () in
   Sdl.log "Using SDL %u.%u.%u" a b c;
